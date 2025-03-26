@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connection & Communication</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#F9D5E5',
+                            DEFAULT: '#EC6B9E',
+                            dark: '#D44A7E',
+                        },
+                        secondary: {
+                            light: '#D4F0FC',
+                            DEFAULT: '#64C4ED',
+                            dark: '#3AA0D1',
+                        },
+                        accent: {
+                            light: '#FFF3CD',
+                            DEFAULT: '#FFD166',
+                            dark: '#E6B800',
+                        },
+                        neutral: {
+                            light: '#F5F7FA',
+                            DEFAULT: '#E4E7EB',
+                            dark: '#9AA5B1',
+                        },
+                    },
+                    borderRadius: {
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                        'card': '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .phone-frame {
+            width: 375px;
+            height: 812px;
+            margin: 0 auto;
+            border: 12px solid #333;
+            border-radius: 36px;
+            overflow: hidden;
+            position: relative;
+        }
+        .app-container {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            background: linear-gradient(to bottom right, #F9F9F9, #F0F0F0);
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .app-container::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .app-container {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="phone-frame shadow-2xl">
+        <div class="app-container">
+            <!-- App Content -->
+            <div class="p-5 pb-20"> <!-- Added padding at bottom for nav bar -->
+                <!-- Header -->
+                <div class="flex items-center justify-between mb-6 mt-2">
+                    <a href="../index.html" class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-soft">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </a>
+                    <h1 class="text-2xl font-bold text-black">Connection & Communication</h1>
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-soft">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Communication Style Analyzer -->
+                <div class="bg-white rounded-2xl p-5 shadow-card mb-6">
+                    <h2 class="text-lg font-semibold text-black mb-4">Communication Style Analyzer</h2>
+                    <p class="text-black mb-4">Understand your communication patterns and learn how to better connect with your partner.</p>
+                    
+                    <div class="space-y-4 mb-5">
+                        <!-- Communication Style Results -->
+                        <div class="bg-neutral-light rounded-xl p-4">
+                            <h3 class="font-medium text-black mb-2">Your Communication Style</h3>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-sm text-black">Direct</span>
+                                <div class="w-32 bg-white rounded-full h-2 mx-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                                <span class="text-sm text-black">Indirect</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-sm text-black">Logical</span>
+                                <div class="w-32 bg-white rounded-full h-2 mx-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+                                </div>
+                                <span class="text-sm text-black">Emotional</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-black">Reserved</span>
+                                <div class="w-32 bg-white rounded-full h-2 mx-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 40%"></div>
+                                </div>
+                                <span class="text-sm text-black">Expressive</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-neutral-light rounded-xl p-4">
+                            <h3 class="font-medium text-black mb-2">Partner's Communication Style</h3>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-sm text-black">Direct</span>
+                                <div class="w-32 bg-white rounded-full h-2 mx-2">
+                                    <div class="bg-secondary h-2 rounded-full" style="width: 45%"></div>
+                                </div>
+                                <span class="text-sm text-black">Indirect</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-sm text-black">Logical</span>
+                                <div class="w-32 bg-white rounded-full h-2 mx-2">
+                                    <div class="bg-secondary h-2 rounded-full" style="width: 35%"></div>
+                                </div>
+                                <span class="text-sm text-black">Emotional</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-black">Reserved</span>
+                                <div class="w-32 bg-white rounded-full h-2 mx-2">
+                                    <div class="bg-secondary h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                                <span class="text-sm text-black">Expressive</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-primary-light rounded-xl p-4 mb-4">
+                        <h3 class="font-medium text-black mb-2">Communication Insights</h3>
+                        <p class="text-black text-sm">You tend to be direct and logical, while your partner is more indirect and emotional. Try to soften your approach and ask open-ended questions to better connect with your partner's communication style.</p>
+                    </div>
+                    
+                    <button class="w-full bg-primary text-white py-3 rounded-xl font-medium shadow-soft hover:bg-primary-dark transition-colors">Take Full Assessment</button>
+                </div>
+                
+                <!-- Daily Check-in Questions -->
+                <div class="bg-white rounded-2xl p-5 shadow-card mb-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-lg font-semibold text-black">Daily Check-in Questions</h2>
+                        <span class="bg-accent-light text-black text-xs px-2 py-1 rounded-full">Today's 3</span>
+                    </div>
+                    
+                    <div class="space-y-4 mb-4">
+                        <div class="bg-secondary-light rounded-xl p-4">
+                            <p class="text-black mb-2">What's one thing I did today that made you feel appreciated?</p>
+                            <textarea class="w-full p-3 border border-neutral rounded-lg text-sm" rows="2" placeholder="Type your answer here..."></textarea>
+                        </div>
+                        
+                        <div class="bg-accent-light rounded-xl p-4">
+                            <p class="text-black mb-2">What's something you're looking forward to us doing together?</p>
+                            <textarea class="w-full p-3 border border-neutral rounded-lg text-sm" rows="2" placeholder="Type your answer here..."></textarea>
+                        </div>
+                        
+                        <div class="bg-primary-light rounded-xl p-4">
+                            <p class="text-black mb-2">Is there anything you need support with this week?</p>
+                            <textarea class="w-full p-3 border border-neutral rounded-lg text-sm" rows="2" placeholder="Type your answer here..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-white border border-neutral text-black py-2 rounded-xl font-medium shadow-soft">Save for Later</button>
+                        <button class="flex-1 bg-secondary text-white py-2 rounded-xl font-medium shadow-soft hover:bg-secondary-dark transition-colors">Share Answers</button>
+                    </div>
+                </div>
+                
+                <!-- Appreciation Notes -->
+                <div class="bg-white rounded-2xl p-5 shadow-card mb-6">
+                    <h2 class="text-lg font-semibold text-black mb-4">Appreciation Notes</h2>
+                    <p class="text-black mb-4">Express gratitude and appreciation to strengthen your connection.</p>
+                    
+                    <div class="space-y-4 mb-4">
+                        <div class="bg-white border border-neutral rounded-xl p-4 shadow-soft">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="text-xs text-black opacity-75">Sent yesterday</span>
+                                <div class="bg-accent-light w-8 h-8 rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="text-black mb-1">I really appreciated how you listened to me vent about work yesterday without trying to solve everything. Sometimes I just need someone to hear me out, and you're always there for that. Thank you! ❤️</p>
+                            <div class="flex justify-end">
+                                <button class="text-primary text-sm font-medium">Reply</button>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white border border-neutral rounded-xl p-4 shadow-soft">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="text-xs text-black opacity-75">Sent 3 days ago</span>
+                                <div class="bg-primary-light w-8 h-8 rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="text-black mb-1">The dinner you cooked last night was amazing! I know you've been practicing that recipe for a while, and it really paid off. You always put so much care into the things you do. 🍽️</p>
+                            <div class="flex justify-end">
+                                <button class="text-primary text-sm font-medium">Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-primary text-white py-2 rounded-xl font-medium shadow-soft hover:bg-primary-dark transition-colors">Write New Note</button>
+                </div>
+                
+                <!-- Conflict Resolution Tool -->
+                <div class="bg-white rounded-2xl p-5 shadow-card mb-20">
+                    <h2 class="text-lg font-semibold text-black mb-4">Conflict Resolution Tool</h2>
+                    <p class="text-black mb-4">Navigate disagreements constructively and strengthen your relationship.</p>
+                    
+                    <div class="bg-neutral-light rounded-xl p-4 mb-4">
+                        <h3 class="font-medium text-black mb-3">Healthy Conflict Steps</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <div class="bg-secondary-light w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                    <span class="text-secondary-dark font-medium">1</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-black">Express Feelings Using "I" Statements</h4>
+                                    <p class="text-sm text-black opacity-75">"I feel [emotion] when [situation] because [reason]."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-secondary-light w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                    <span class="text-secondary-dark font-medium">2</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-black">Listen Without Interrupting</h4>
+                                    <p class="text-sm text-black opacity-75">Give your partner space to express their perspective fully.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-secondary-light w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                    <span class="text-secondary-dark font-medium">3</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-black">Validate Their Feelings</h4>
+                                    <p class="text-sm text-black opacity-75">"I understand why you would feel that way."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-secondary-light w-8 h-8 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                                    <span class="text-secondary-dark font-medium">4</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-black">Collaborate on Solutions</h4>
+                                    <p class="text-sm text-black opacity-75">Work together to find a resolution that addresses both needs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-medium text-black mb-2">Current Conflict</label>
+                            <textarea class="w-full p-3 border border-neutral rounded-lg text-sm" rows="3" placeholder="Describe the current situation..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-black mb-2">Your Feelings</label>
+                            <textarea class="w-full p-3 border border-neutral rounded-lg text-sm" rows="2" placeholder="I feel..."></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-black mb-2">Possible Solutions</label>
+                            <textarea class="w-full p-3 border border-neutral rounded-lg text-sm" rows="2" placeholder="What solutions might work for both of you?"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-white border border-neutral text-black py-2 rounded-xl font-medium shadow-soft">Save Draft</button>
+                        <button class="flex-1 bg-secondary text-white py-2 rounded-xl font-medium shadow-soft hover:bg-secondary-dark transition-colors">Share With Partner</button>
+                    </div>

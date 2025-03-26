@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Relationship Coach</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#F9D5E5',
+                            DEFAULT: '#EC6B9E',
+                            dark: '#D44A7E',
+                        },
+                        secondary: {
+                            light: '#D4F0FC',
+                            DEFAULT: '#64C4ED',
+                            dark: '#3AA0D1',
+                        },
+                        accent: {
+                            light: '#FFF3CD',
+                            DEFAULT: '#FFD166',
+                            dark: '#E6B800',
+                        },
+                        neutral: {
+                            light: '#F5F7FA',
+                            DEFAULT: '#E4E7EB',
+                            dark: '#9AA5B1',
+                        },
+                    },
+                    borderRadius: {
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                        'card': '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .phone-frame {
+            width: 375px;
+            height: 812px;
+            margin: 0 auto;
+            border: 12px solid #333;
+            border-radius: 36px;
+            overflow: hidden;
+            position: relative;
+        }
+        .app-container {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            background: linear-gradient(to bottom right, #F9F9F9, #F0F0F0);
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .app-container::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .app-container {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .chat-bubble {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            margin-bottom: 8px;
+        }
+        .coach-bubble {
+            background-color: #F5F7FA;
+            border-top-left-radius: 4px;
+            align-self: flex-start;
+        }
+        .user-bubble {
+            background-color: #EC6B9E;
+            color: white;
+            border-top-right-radius: 4px;
+            align-self: flex-end;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="phone-frame shadow-2xl">
+        <div class="app-container">
+            <!-- App Content -->
+            <div class="p-5 pb-20"> <!-- Added padding at bottom for nav bar -->
+                <!-- Header -->
+                <div class="flex items-center justify-between mb-6 mt-2">
+                    <a href="../index.html" class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-soft">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </a>
+                    <h1 class="text-2xl font-bold text-black">AI Coach</h1>
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-soft">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Coach Profile -->
+                <div class="bg-white rounded-2xl p-5 shadow-card mb-6">
+                    <div class="flex items-center">
+                        <div class="w-16 h-16 bg-neutral-light rounded-full flex items-center justify-center mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-neutral-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="font-semibold text-black mb-1">Relationship Coach</h2>
+                            <p class="text-sm text-black opacity-75">Personalized guidance for your relationship</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Relationship Assessment -->
+                <div class="bg-white rounded-2xl p-5 shadow-card mb-6">
+                    <h3 class="text-lg font-semibold text-black mb-3">Relationship Health</h3>
+                    <div class="mb-4">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm text-black">Communication</span>
+                            <span class="text-sm text-black">75%</span>
+                        </div>
+                        <div class="w-full bg-neutral-light rounded-full h-2">
+                            <div class="bg-secondary h-2 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm text-black">Emotional Connection</span>
+                            <span class="text-sm text-black">82%</span>
+                        </div>
+                        <div class="w-full bg-neutral-light rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 82%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm text-black">Conflict Resolution</span>
+                            <span class="text-sm text-black">60%</span>
+                        </div>
+                        <div class="w-full bg-neutral-light rounded-full h-2">
+                            <div class="bg-accent h-2 rounded-full" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <button class="w-full bg-neutral-light text-black py-2 rounded-xl font-medium mt-2">Take Full Assessment</button>
+                </div>
+                
+                <!-- Chat with Coach -->
+                <h3 class="text-lg font-semibold text-black mb-3">Chat with Coach</h3>
+                <div class="bg-white rounded-2xl p-5 shadow-card mb-6">
+                    <div class="flex flex-col mb-4">
+                        <div class="chat-bubble coach-bubble">
+                            <p class="text-black">Hi there! Based on your recent diary entries, I notice you've been feeling a bit disconnected. Would you like some suggestions to improve your communication?</p>
+                        </div>
+                        <div class="chat-bubble user-bubble">
+                            <p>Yes, we've been busy and haven't had much quality time together.</p>
+                        </div>
+                        <div class="chat-bubble coach-bubble">
+                            <p class="text-black">I understand. Even 15 minutes of focused connection can make a difference. Try the "High/Low" exercise tonight - each share the highest and lowest point of your day without interruption.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="text" class="flex-1 px-4 py-2 border border-neutral rounded-l-xl focus:outline-none focus:ring-2 focus:ring-primary-light" placeholder="Type your message...">
+                        <button class="bg-primary text-white px-4 py-2 rounded-r-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Suggested Exercises -->
+                <h3 class="text-lg font-semibold text-black mb-3">Suggested Exercises</h3>
+                <div class="space-y-3 mb-20">
+                    <div class="bg-white rounded-xl p-4 shadow-soft">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-medium text-black">Active Listening Practice</h4>
+                                <p class="text-sm text-black opacity-75 mb-2">15 min • Communication</p>
+                                <p class="text-black">Take turns speaking for 5 minutes without interruption about something important to you.</p>
+                            </div>
+                            <div class="bg-primary-light w-10 h-10 rounded-full flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <button class="bg-primary text-white py-1 px-3 rounded-lg text-sm font-medium mt-2">Start Exercise</button>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-4 shadow-soft">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-medium text-black">Appreciation Exchange</h4>
+                                <p class="text-sm text-black opacity-75 mb-2">10 min • Connection</p>
+                                <p class="text-black">Share three specific things you appreciate about your partner right now.</p>
+                            </div>
+                            <div class="bg-secondary-light w-10 h-10 rounded-full flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <button class="bg-secondary text-white py-1 px-3 rounded-lg text-sm font-medium mt-2">Start Exercise</button>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-4 shadow-soft">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-medium text-black">Conflict Resolution Framework</h4>
+                                <p class="text-sm text-black opacity-75 mb-2">20 min • Problem Solving</p>
+                                <p class="text-black">A structured approach to discussing a recent disagreement constructively.</p>
+                            </div>
+                            <div class="bg-accent-light w-10 h-10 rounded-full flex items-center justify-center">
+                                <svg xmlns="

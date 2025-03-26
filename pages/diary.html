@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relationship Diary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#F9D5E5',
+                            DEFAULT: '#EC6B9E',
+                            dark: '#D44A7E',
+                        },
+                        secondary: {
+                            light: '#D4F0FC',
+                            DEFAULT: '#64C4ED',
+                            dark: '#3AA0D1',
+                        },
+                        accent: {
+                            light: '#FFF3CD',
+                            DEFAULT: '#FFD166',
+                            dark: '#E6B800',
+                        },
+                        neutral: {
+                            light: '#F5F7FA',
+                            DEFAULT: '#E4E7EB',
+                            dark: '#9AA5B1',
+                        },
+                    },
+                    borderRadius: {
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                        'card': '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .phone-frame {
+            width: 375px;
+            height: 812px;
+            margin: 0 auto;
+            border: 12px solid #333;
+            border-radius: 36px;
+            overflow: hidden;
+            position: relative;
+        }
+        .app-container {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            background: linear-gradient(to bottom right, #F9F9F9, #F0F0F0);
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .app-container::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .app-container {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .mood-selector {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        .mood-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+        .mood-emoji {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+        input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+        input[type="radio"]:checked + .mood-circle {
+            background-color: #EC6B9E;
+            border-color: #D44A7E;
+        }
+        .mood-circle {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            border: 2px solid #E4E7EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="phone-frame shadow-2xl">
+        <div class="app-container">
+            <!-- App Content -->
+            <div class="p-5 pb-20"> <!-- Added padding at bottom for nav bar -->
+                <!-- Header -->
+                <div class="flex items-center justify-between mb-6 mt-2">
+                    <a href="../index.html" class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-soft">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </a>
+                    <h1 class="text-2xl font-bold text-black">Relationship Diary</h1>
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-soft">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- New Entry Form -->
+                <div class="bg-white rounded-2xl p-5 shadow-card mb-6">
+                    <h2 class="text-lg font-semibold text-black mb-4">How are you feeling today?</h2>
+                    
+                    <form>
+                        <!-- Mood Selector -->
+                        <div class="mood-selector mb-5">
+                            <label class="mood-option">
+                                <input type="radio" name="mood" value="amazing">
+                                <div class="mood-circle">
+                                    <span class="mood-emoji">😍</span>
+                                </div>
+                                <span class="text-xs mt-1 text-black">Amazing</span>
+                            </label>
+                            
+                            <label class="mood-option">
+                                <input type="radio" name="mood" value="good">
+                                <div class="mood-circle">
+                                    <span class="mood-emoji">😊</span>
+                                </div>
+                                <span class="text-xs mt-1 text-black">Good</span>
+                            </label>
+                            
+                            <label class="mood-option">
+                                <input type="radio" name="mood" value="okay">
+                                <div class="mood-circle">
+                                    <span class="mood-emoji">😐</span>
+                                </div>
+                                <span class="text-xs mt-1 text-black">Okay</span>
+                            </label>
+                            
+                            <label class="mood-option">
+                                <input type="radio" name="mood" value="down">
+                                <div class="mood-circle">
+                                    <span class="mood-emoji">😔</span>
+                                </div>
+                                <span class="text-xs mt-1 text-black">Down</span>
+                            </label>
+                            
+                            <label class="mood-option">
+                                <input type="radio" name="mood" value="upset">
+                                <div class="mood-circle">
+                                    <span class="mood-emoji">😢</span>
+                                </div>
+                                <span class="text-xs mt-1 text-black">Upset</span>
+                            </label>
+                        </div>
+                        
+                        <!-- Journal Entry -->
+                        <div class="mb-4">
+                            <label for="entry" class="block text-sm font-medium text-black mb-2">What's on your mind?</label>
+                            <textarea id="entry" rows="4" class="w-full px-3 py-2 border border-neutral rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-light resize-none" placeholder="Write about your day, feelings, or a special moment..."></textarea>
+                        </div>
+                        
+                        <!-- Privacy Toggle -->
+                        <div class="flex items-center justify-between mb-5">
+                            <span class="text-sm font-medium text-black">Share with partner?</span>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer">
+                                <div class="w-11 h-6 bg-neutral rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-neutral after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                            </label>
+                        </div>
+                        
+                        <!-- Tags -->
+                        <div class="mb-5">
+                            <label class="block text-sm font-medium text-black mb-2">Add tags</label>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-primary-light text-black rounded-full text-xs cursor-pointer">Communication</span>
+                                <span class="px-3 py-1 bg-secondary-light text-black rounded-full text-xs cursor-pointer">Date Night</span>
+                                <span class="px-3 py-1 bg-accent-light text-black rounded-full text-xs cursor-pointer">Conflict</span>
+                                <span class="px-3 py-1 bg-neutral-light text-black rounded-full text-xs cursor-pointer">Appreciation</span>
+                                <span class="px-3 py-1 bg-primary-light text-black rounded-full text-xs cursor-pointer">Milestone</span>
+                                <span class="px-3 py-1 bg-white border border-dashed border-neutral-dark text-black rounded-full text-xs cursor-pointer">+ Add</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full bg-primary text-white py-3 rounded-xl font-medium shadow-soft hover:bg-primary-dark transition-colors">Save Entry</button>
+                    </form>
+                </div>
+                
+                <!-- Previous Entries -->
+                <h3 class="text-lg font-semibold text-black mb-4">Previous Entries</h3>
+                
+                <div class="space-y-4 mb-20">
+                    <!-- Entry 1 -->
+                    <div class="bg-white rounded-xl p-4 shadow-soft">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <div class="flex items-center">
+                                    <span class="text-xl mr-2">😊</span>
+                                    <h4 class="font-medium text-black">Good day</h4>
+                                </div>
+                                <p class="text-xs text-black opacity-75">Today at 2:30 PM</p>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="bg-primary-light text-black text-xs px-2 py-1 rounded-full mr-2">Shared</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-black mb-3">Had a wonderful dinner with Alex tonight. We tried that new Italian place downtown and the food was amazing! We had a great conversation about our future plans.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-secondary-light text-black rounded-full text-xs">Date Night</span>
+                            <span class="px-2 py-1 bg-primary-light text-black rounded-full text-xs">Communication</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Entry 2 -->
+                    <div class="bg-white rounded-xl p-4 shadow-soft">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <div class="flex items-center">
+                                    <span class="text-xl mr-2">😐</span>
+                                    <h4 class="font-medium text-black">Okay day</h4>
+                                </div>
+                                <p class="text-xs text-black opacity-75">Yesterday at 9:15 PM</p>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="bg-neutral-light text-black text-xs px-2 py-1 rounded-full mr-2">Private</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black opacity-75" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0
