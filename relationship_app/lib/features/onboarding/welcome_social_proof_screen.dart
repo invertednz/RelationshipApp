@@ -124,15 +124,6 @@ class WelcomeSocialProofScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 12),
-              
-              Text(
-                '✓ Free 7-day trial • No credit card required',
-                style: TextStyle(
-                  fontSize: 13,
-                  color: AppColors.textSecondary,
-                ),
-                textAlign: TextAlign.center,
-              ),
             ],
           ),
         ),
